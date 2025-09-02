@@ -1,0 +1,155 @@
+
+interface Recipe {
+    id: number,
+    img: string,
+    name: string,
+    ingredients: string[],
+    isLearned: boolean,
+    isCooked: boolean,
+}
+
+let recipes:Recipe[] = [
+    {
+        id: 1,
+        img: '/cooking/Fried_Egg.png',
+        name: 'Fried Egg',
+        ingredients: ['Egg'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 2,
+        img: '/cooking/Omelet.png',
+        name: 'Omelet',
+        ingredients: ['Egg', 'Milk'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 3,
+        img: '/cooking/Salad.png',
+        name: 'Salad',
+        ingredients: ['Leek', 'Dandelion', 'Vinegar'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 4,
+        img: '/cooking/Cheese_Cauliflower.png',
+        name: 'Cheese Cauliflower',
+        ingredients: ['Cauliflower', 'Cheese'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 5,
+        img: '/cooking/Baked_Fish.png',
+        name: 'Baked Fish',
+        ingredients: ['Sunfish', 'Bream', 'Wheat Flour'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 6,
+        img: '/cooking/Parsnip_Soup.png',
+        name: 'Parsnip Soup',
+        ingredients: ['Parsnip', 'Milk', 'Vinegar'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 7,
+        img: '/cooking/Vegetable_Medley.png',
+        name: 'Vegetable Medley',
+        ingredients: ['Tomato', 'Beet'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 8,
+        img: '/cooking/Complete_Breakfast.png',
+        name: 'Complete Breakfast',
+        ingredients: ['Fried Egg', 'Milk', 'Hashbrowns', 'Pancakes'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 9,
+        img: '/cooking/Fried_Calamari.png',
+        name: 'Fried Calamari',
+        ingredients: ['Squid', 'Wheat Flour', 'Oil'],
+        isLearned: false,
+        isCooked: false,
+    },
+    
+    {
+        id: 10,
+        img: '/cooking/Strange_Bun.png',
+        name: 'Strange Bun',
+        ingredients: ['Wheat Flour', 'Periwinkle', 'Void Mayonnaise'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 11,
+        img: '/cooking/Lucky_Lunch.png',
+        name: 'Lucky Lunch',
+        ingredients: ['Sea Cucumber', 'Tortilla', 'Blue Jazz'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 12,
+        img: '/cooking/Fried_Mushroom.png',
+        name: 'Fried Mushroom',
+        ingredients: ['Common Mushroom', 'Morel', 'Oil'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 13,
+        img: '/cooking/Pizza.png',
+        name: 'Pizza',
+        ingredients: ['Wheat Flour', 'Tomato', 'Cheese'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 14,
+        img: '/cooking/Bean_Hotpot.png',
+        name: 'Bean Hotpot',
+        ingredients: ['Green Bean x 2'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 15,
+        img: '/cooking/Glazed_Yams.png',
+        name: 'Glazed Yams',
+        ingredients: ['Yam', 'Sugar'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 16,
+        img: '/cooking/Carp_Surprise.png',
+        name: 'Carp Surprise',
+        ingredients: ['Carp x 4'],
+        isLearned: false,
+        isCooked: false,
+    },
+    {
+        id: 17,
+        img: '/cooking/Hashbrowns.png',
+        name: 'Hashbrowns',
+        ingredients: ['Potato', 'Oil'],
+        isLearned: false,
+        isCooked: false,
+    },
+
+    
+
+]
+
+export default recipes;
+export type {Recipe};
