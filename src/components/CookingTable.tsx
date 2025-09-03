@@ -26,6 +26,7 @@ export default function CookingTable({recipeData = recipes}: CookingTableProps) 
 
     function checkedCooked(recipeId: number) {
         setCooked(prev => ({
+            // prev here is current state
             ...prev, // copies the object
             [recipeId]: !prev[recipeId]
             // setting the value for recipeId

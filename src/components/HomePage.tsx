@@ -1,6 +1,6 @@
 import logo from '/Main_Logo.png';
 import cookingAchievement from '/public/Achievement_Gourmet_Chef.jpg';
-import junimo from '/Junimo.gif'
+
 export default function HomePage() {
     return(
         <div className='flex bg-lightgray/80 items-center '>
