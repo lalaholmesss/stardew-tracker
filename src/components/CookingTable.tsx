@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import recipes from "../data/recipes";
 import type { Recipe } from "../data/recipes";
 
@@ -6,15 +6,43 @@ interface CookingTableProps {
     recipeData?: Recipe[];
 }
 
-
 export default function CookingTable({recipeData = recipes}: CookingTableProps) {
-    const [learned, setLearned] = useState(false);
-    const [cooked, setCooked] = useState(false);
+    const [learned, setLearned] = useState<Record<string, boolean>>(() => {
+        const saved = localStorage.getItem('is-learned'); 
+        return saved ? JSON.parse(saved) : {}; // getting the value - key pairs of the object - contains only key - values that user checked
+    });
+    
+    const [cooked, setCooked] = useState<Record<string, boolean>>(() => {
+        const saved = localStorage.getItem('is-cooked');
+        return saved ? JSON.parse(saved) : {};
+    });
 
+    function checkedLearned(recipeId: number) {
+        setLearned(prev => ({
+            ...prev,
+            [recipeId]: !prev[recipeId]
+        }));
+    }
+
+    function checkedCooked(recipeId: number) {
+        setCooked(prev => ({
+            ...prev, // copies the object
+            [recipeId]: !prev[recipeId]
+            // setting the value for recipeId
+        }));
+    }
+
+    useEffect(() => {
+        localStorage.setItem('is-learned', JSON.stringify(learned));
+    }, [learned]);
+
+    useEffect(() => {
+        localStorage.setItem('is-cooked', JSON.stringify(cooked));
+    }, [cooked]);
 
     return(
-        <div className='bg-lightblue/50'>
-            <table className='bg-white border-separate border-spacing-1 rounded-lg p-1 border-lightblue border max-w-2xl mx-auto'>
+        <div className=''>
+            <table className='bg-white border-separate border-spacing-1 p-1 border-lightblue border max-w-2xl mx-auto'>
                 <thead>
                     <tr className='bg-green text-white text-base '>
                        <th className='border-lightblue border py-2 px-2 font-normal'>Name</th>
@@ -50,16 +78,16 @@ export default function CookingTable({recipeData = recipes}: CookingTableProps) 
                                     type="checkbox" 
                                     defaultChecked={recipe.isLearned}
                                     className="w-4 h-4"
-                                    onChange={() => setLearned(true)}
+                                    checked={learned[recipe.id] ?? recipe.isLearned ?? false}
+                                    onChange={() => checkedLearned(recipe.id)}
                                 />
                             </td>
                             <td className="border border-gray-300 px-4 py-2 text-center">
                                 <input 
                                     type="checkbox" 
-                                    defaultChecked={recipe.isCooked}
+                                    checked={cooked[recipe.id] ?? recipe.isCooked ?? false}
                                     className="w-4 h-4"
-                                    onChange={() => setCooked(true)}
-
+                                    onChange={() => checkedCooked(recipe.id)}
                                 />
                             </td>
                         </tr>
