@@ -9,7 +9,8 @@ export default {
         'lightgray': '#d3e3f5',
         'green': '#03a007',
         'lightblue': '#8dcaf0',
-        'darkblue': '#0645ad'
+        'darkblue': '#0645ad',
+        'yellow': '#FFDB4D'
       }
     },
   },

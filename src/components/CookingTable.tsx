@@ -43,7 +43,7 @@ export default function CookingTable({recipeData = recipes}: CookingTableProps) 
 
     return(
         <div className=''>
-            <table className='bg-white border-separate border-spacing-1 p-1 border-lightblue border max-w-2xl mx-auto'>
+            <table className='bg-white border-separate border-spacing-1  border-lightblue border max-w-2xl mx-auto'>
                 <thead>
                     <tr className='bg-green text-white text-base '>
                        <th className='border-lightblue border py-2 px-2 font-normal'>Name</th>

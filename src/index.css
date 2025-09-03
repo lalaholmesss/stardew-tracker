@@ -1,3 +1,10 @@
 @tailwind base;
-@tailwind component;
+@tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .text-shadow-blue {
+    text-shadow: 1px 1px  darkblue;
+  }
+}
+
