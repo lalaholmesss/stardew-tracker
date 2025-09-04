@@ -51,11 +51,11 @@ export default function CropsTable({cropsData = crops}: CropsTableProps) {
         <div>
             <table  className='bg-white border-separate border-spacing-1  border-lightblue border max-w-4xl mx-auto '>
                 <thead>
-                    <tr className='bg-green text-white text-base'>
+                    <tr className='bg-green text-white lg:text-base text-xs'>
                         <th className='border-lightblue border py-2 px-8 font-normal'>Name</th>
                         <th className='border-lightblue border py-2 px-8 font-normal'>Growth Time</th>
-                        <th className='border-lightblue border py-2 px-8 font-normal'>Amount Sold</th>
-                        <th className='border-lightblue border py-2 px-8 font-normal'>Completed</th>
+                        <th className='border-lightblue border py-2 lg:px-8 px-2 font-normal'>Amount Sold</th>
+                        <th className='border-lightblue border py-2 lg:px-8 px-2 font-normal'>Completed</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,17 +64,17 @@ export default function CropsTable({cropsData = crops}: CropsTableProps) {
                             <tr key={crop.id} className="hover:bg-gray-50">
                                 <td  className="border border-gray-300 px-4 py-2">
                                     <div className="flex items-center gap-3">
-                                        <img src={crop.img} alt={crop.name}  className="w-12 h-12 object-contain"/>
-                                        <span className="text-base text-darkblue">{crop.name}</span>
+                                        <img src={crop.img} alt={crop.name}  className="lg:w-12 lg:h-12 w-8 object-contain"/>
+                                        <span className="lg:text-base text-xs text-darkblue">{crop.name}</span>
                                     </div>
                                 </td>
 
                                 <td  className="border text-center border-gray-300 px-4 py-2">
-                                    <span className='text-base'>{crop.growthTime} days</span>
+                                    <span className='lg:text-base text-xs'>{crop.growthTime} days</span>
                                 </td>
 
                                 <td  className="border border-gray-300 px-4 py-2 text-center">
-                                    <input type="number" min={0} max={15} className="border border-gray-400 pl-2 focus:outline-yellow" onChange={(e) => 
+                                    <input type="number" min={0} max={15} className="border border-gray-400 pl-2 focus:outline-yellow lg:text-base text-xs " onChange={(e) => 
                                         {   e.preventDefault();
                                             getInputAmount(parseInt(e.target.value));
                                             getAmountSold(crop.id)

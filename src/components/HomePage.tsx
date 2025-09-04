@@ -18,13 +18,13 @@ export default function HomePage() {
 
 
     return(
-        <div className='px-16 w-full'>
+        <div className='lg:px-16 px-4 w-full'>
 
             <div ref={refCookingTable} className='pt-16 '>
                 <div className='flex justify-between items-start'>
                     <AchievementDetails name='Gourmet Chef' about='Cook every recipe' image={gourmetChef} />
                     <div className='border-yellow p-1 border inline-block hover:-translate-y-1 transition duration-150 transform'>
-                        <button className='bg-yellow px-8 py-1' onClick={scrollToCropsTable}>
+                        <button className='bg-yellow lg:px-8 py-1 text-xs lg:text-base px-4' onClick={scrollToCropsTable}>
                             Show Crops Table
                         </button> 
                     </div>
@@ -39,7 +39,7 @@ export default function HomePage() {
                 <div className='flex justify-between items-start'>
                     <AchievementDetails name='Polyculture' about='Ship 15 of each crop' image={polyculture} />
                     <div className='border-yellow p-1 border inline-block hover:-translate-y-1 transition duration-150 transform'>
-                        <button className='bg-yellow px-8 py-1' onClick={scrollToCookingTable}>
+                        <button className='bg-yellow lg:px-8 py-1 text-xs lg:text-base px-4' onClick={scrollToCookingTable}>
                             Show Cooking Recipes
                         </button> 
                     </div>

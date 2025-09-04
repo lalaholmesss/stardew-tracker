@@ -45,11 +45,11 @@ export default function CookingTable({recipeData = recipes}: CookingTableProps) 
         <div>
             <table className='bg-white border-separate border-spacing-1  border-lightblue border max-w-4xl mx-auto'>
                 <thead>
-                    <tr className='bg-green text-white text-base '>
+                    <tr className='bg-green text-white lg:text-base text-xs'>
                        <th className='border-lightblue border py-2 px-8 font-normal'>Name</th>
-                       <th className='border-lightblue border py-2 px-8 font-normal'>Ingredients</th>
-                       <th className='border-lightblue border py-2 px-8 font-normal'>Learned</th>
-                       <th className='border-lightblue border py-2 px-8 font-normal'>Cooked</th>
+                       <th className='border-lightblue border py-2 lg:px-8 font-normal'>Ingredients</th>
+                       <th className='border-lightblue border py-2 lg:px-8 px-2 font-normal'>Learned</th>
+                       <th className='border-lightblue border py-2 lg:px-8 px-2 font-normal'>Cooked</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,21 +60,21 @@ export default function CookingTable({recipeData = recipes}: CookingTableProps) 
                                     <img 
                                         src={recipe.img} 
                                         alt={recipe.name}
-                                        className="w-12 h-12 object-contain"
+                                        className="lg:w-12 lg:h-12 w-8 object-contain"
                                     />
-                                    <span className="text-base text-darkblue">{recipe.name}</span>
+                                    <span className="lg:text-base text-xs text-darkblue">{recipe.name}</span>
                                 </div>
                             </td>
                             <td className="border border-gray-300 px-4 py-2">
                                 <ul className="list-disc list-inside space-y-1">
                                     {recipe.ingredients.map((ingredient, index) => (
-                                        <li key={`${recipe.id}-ingredient-${index}`} className="text-base">
+                                        <li key={`${recipe.id}-ingredient-${index}`} className="lg:text-base text-xs">
                                             {ingredient }  
                                         </li>
                                     ))}
                                 </ul>
                             </td>
-                            <td className="border border-gray-300 px-4 py-2 text-center">
+                            <td className="border border-gray-300 lg:px-4 py-2 text-center">
                                 <input 
                                     type="checkbox" 
                                     className="w-4 h-4"
@@ -82,7 +82,7 @@ export default function CookingTable({recipeData = recipes}: CookingTableProps) 
                                     onChange={() => checkedLearned(recipe.id)}
                                 />
                             </td>
-                            <td className="border border-gray-300 px-4 py-2 text-center">
+                            <td className="border border-gray-300 lg:px-4 py-2 text-center">
                                 <input 
                                     type="checkbox" 
                                     checked={cooked[recipe.id] ?? recipe.isCooked ?? false}
