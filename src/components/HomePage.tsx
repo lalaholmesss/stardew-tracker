@@ -6,8 +6,8 @@ import polyculture from '/Achievement_Polyculture.jpg';
 import { useRef } from "react";
 
 export default function HomePage() {
-    const refCropsTable = useRef(null);
-    const refCookingTable = useRef(null);
+    const refCropsTable = useRef<null | HTMLDivElement>(null); 
+    const refCookingTable = useRef<null | HTMLDivElement>(null);
 
     function scrollToCropsTable() {
         refCropsTable.current?.scrollIntoView({behavior: 'smooth'});
