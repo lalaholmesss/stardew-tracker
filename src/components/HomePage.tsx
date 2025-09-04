@@ -1,5 +1,6 @@
 import Button from "./Button";
 import CookingTable from "./CookingTable";
+import CropsTable from "./CropsTable";
 import gourmetChef from '/Achievement_Gourmet_Chef.jpg';
 // import polyculture from '/Achievement_Polyculture.jpg';
 
@@ -20,10 +21,8 @@ export default function HomePage() {
                 </div>
             </div>
             
-            
-            
-            
             <CookingTable />
+            <CropsTable />
         </div>
     )
 }

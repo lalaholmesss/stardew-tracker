@@ -42,14 +42,14 @@ export default function CookingTable({recipeData = recipes}: CookingTableProps) 
     }, [cooked]);
 
     return(
-        <div className=''>
-            <table className='bg-white border-separate border-spacing-1  border-lightblue border max-w-2xl mx-auto'>
+        <div>
+            <table className='bg-white border-separate border-spacing-1  border-lightblue border max-w-4xl mx-auto'>
                 <thead>
                     <tr className='bg-green text-white text-base '>
-                       <th className='border-lightblue border py-2 px-2 font-normal'>Name</th>
-                       <th className='border-lightblue border py-2 px-2 font-normal'>Ingredients</th>
-                       <th className='border-lightblue border py-2 px-2 font-normal'>Learned</th>
-                       <th className='border-lightblue border py-2 px-2 font-normal'>Cooked</th>
+                       <th className='border-lightblue border py-2 px-8 font-normal'>Name</th>
+                       <th className='border-lightblue border py-2 px-8 font-normal'>Ingredients</th>
+                       <th className='border-lightblue border py-2 px-8 font-normal'>Learned</th>
+                       <th className='border-lightblue border py-2 px-8 font-normal'>Cooked</th>
                     </tr>
                 </thead>
                 <tbody>
