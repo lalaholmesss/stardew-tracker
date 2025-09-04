@@ -77,7 +77,6 @@ export default function CookingTable({recipeData = recipes}: CookingTableProps) 
                             <td className="border border-gray-300 px-4 py-2 text-center">
                                 <input 
                                     type="checkbox" 
-                                    defaultChecked={recipe.isLearned}
                                     className="w-4 h-4"
                                     checked={learned[recipe.id] ?? recipe.isLearned ?? false}
                                     onChange={() => checkedLearned(recipe.id)}

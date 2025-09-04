@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import crops from "../data/crops";
 import type { Crops } from "../data/crops";
 
@@ -6,6 +7,45 @@ interface CropsTableProps {
 }
 
 export default function CropsTable({cropsData = crops}: CropsTableProps) {
+    const [completed, setCompleted] = useState<Record<string, boolean>>(() => {
+        const saved = localStorage.getItem('is-completed');
+        return saved? JSON.parse(saved) : {}; // if the obj exists, completed is the obj
+    })
+
+    const [cropsSold, setCropsSold] = useState<Record<string, number>>(() => {
+        const saved = localStorage.getItem('item-amount');
+        return saved? JSON.parse(saved) : {};
+    })
+
+    //
+    const [inputAmount, setInputAmount] = useState(0);
+    // To fix: localStorage for number input works, but number input doesn't behave as it is supposed to
+    function getInputAmount(inputValue: number) {
+        setInputAmount(inputValue);
+    }
+    //
+
+    function checkedCompleted(cropId: number) {
+        setCompleted((prev) => ({
+            ...prev,
+            [cropId]: !prev[cropId]
+        }))
+    }
+
+    function getAmountSold(cropId: number) {
+        setCropsSold((prev) => ({
+            ...prev,
+            [cropId]: inputAmount
+        })) ;
+    }
+    
+    useEffect(() => {
+        localStorage.setItem('is-completed', JSON.stringify(completed));
+    }, [completed]);
+
+    useEffect(() => {
+        localStorage.setItem('item-amount', JSON.stringify(cropsSold));
+    }, [cropsSold]);
 
     return(
         <div>
@@ -28,14 +68,24 @@ export default function CropsTable({cropsData = crops}: CropsTableProps) {
                                         <span className="text-base text-darkblue">{crop.name}</span>
                                     </div>
                                 </td>
+
                                 <td  className="border text-center border-gray-300 px-4 py-2">
                                     <span className='text-base'>{crop.growthTime} days</span>
                                 </td>
+
                                 <td  className="border border-gray-300 px-4 py-2 text-center">
-                                    <input type="number" min={0} max={15} className="border border-gray-400 max-w-16 px-2"/>
+                                    <input type="number" min={0} max={15} className="border border-gray-400 pl-2 focus:outline-yellow" onChange={(e) => 
+                                        {   e.preventDefault();
+                                            getInputAmount(parseInt(e.target.value));
+                                            getAmountSold(crop.id)
+
+                                        }} value={cropsSold[crop.id] ?? crop.amountSold ?? 0} />
                                 </td>
+
                                 <td  className="border border-gray-300 px-4 py-2 text-center">
-                                    <input type="checkbox" name="COmpleted" className="w-4 h-4"/>
+                                    <input type="checkbox" name="Completed" className="w-4 h-4"
+                                    onChange={() => checkedCompleted(crop.id)}
+                                    checked={completed[crop.id] ?? crop.isCompleted ?? false}/>
                                 </td>
                             </tr>
                         ))
