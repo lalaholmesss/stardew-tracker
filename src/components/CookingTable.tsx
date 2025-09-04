@@ -55,7 +55,7 @@ export default function CookingTable({recipeData = recipes}: CookingTableProps) 
                 <tbody>
                     {recipeData.map((recipe) => (
                         <tr key={recipe.id} className="hover:bg-gray-50">
-                            <td className="border border-gray-300 px-4 py-2">
+                            <td className="border border-gray-300 lg:px-4 px-2 py-2">
                                 <div className="flex items-center gap-3">
                                     <img 
                                         src={recipe.img} 

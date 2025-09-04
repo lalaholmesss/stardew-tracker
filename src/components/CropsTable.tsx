@@ -52,17 +52,17 @@ export default function CropsTable({cropsData = crops}: CropsTableProps) {
             <table  className='bg-white border-separate border-spacing-1  border-lightblue border max-w-4xl mx-auto '>
                 <thead>
                     <tr className='bg-green text-white lg:text-base text-xs'>
-                        <th className='border-lightblue border py-2 px-8 font-normal'>Name</th>
+                        <th className='border-lightblue border py-2 lg:px-8 px-2  font-normal'>Name</th>
                         <th className='border-lightblue border py-2 px-8 font-normal'>Growth Time</th>
                         <th className='border-lightblue border py-2 lg:px-8 px-2 font-normal'>Amount Sold</th>
-                        <th className='border-lightblue border py-2 lg:px-8 px-2 font-normal'>Completed</th>
+                        <th className='border-lightblue border py-2 lg:px-8 px-2 font-normal'>Sold 15</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
                         cropsData.map((crop) => (
                             <tr key={crop.id} className="hover:bg-gray-50">
-                                <td  className="border border-gray-300 px-4 py-2">
+                                <td  className="border border-gray-300 lg:px-4 px-1 py-2">
                                     <div className="flex items-center gap-3">
                                         <img src={crop.img} alt={crop.name}  className="lg:w-12 lg:h-12 w-8 object-contain"/>
                                         <span className="lg:text-base text-xs text-darkblue">{crop.name}</span>
