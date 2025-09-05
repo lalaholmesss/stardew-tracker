@@ -17,14 +17,6 @@ export default function CropsTable({cropsData = crops}: CropsTableProps) {
         return saved? JSON.parse(saved) : {};
     })
 
-    //
-    const [inputAmount, setInputAmount] = useState(0);
-    // To fix: localStorage for number input works, but number input doesn't behave as it is supposed to
-    function getInputAmount(inputValue: number) {
-        setInputAmount(inputValue);
-    }
-    //
-
     function checkedCompleted(cropId: number) {
         setCompleted((prev) => ({
             ...prev,
@@ -32,10 +24,10 @@ export default function CropsTable({cropsData = crops}: CropsTableProps) {
         }))
     }
 
-    function getAmountSold(cropId: number) {
+    function getAmountSold(cropId: number, value:string) {
         setCropsSold((prev) => ({
             ...prev,
-            [cropId]: inputAmount
+            [cropId]: parseInt(value)
         })) ;
     }
     
@@ -74,18 +66,18 @@ export default function CropsTable({cropsData = crops}: CropsTableProps) {
                                 </td>
 
                                 <td  className="border border-gray-300 px-4 py-2 text-center">
-                                    <input type="number" min={0} max={15} className="border border-gray-400 pl-2 focus:outline-yellow lg:text-base text-xs " onChange={(e) => 
-                                        {   e.preventDefault();
-                                            getInputAmount(parseInt(e.target.value));
-                                            getAmountSold(crop.id)
-
-                                        }} value={cropsSold[crop.id] ?? crop.amountSold ?? 0} />
+                                    <input type="number" min={0} max={999} className="border border-gray-400 pl-2 focus:outline-yellow lg:text-base text-xs " onChange={(e) => 
+                                        {   e.preventDefault(); 
+                                            getAmountSold(crop.id, e.target.value);
+                                            console.log(typeof(e.target.value))
+                                        }} value={cropsSold[crop.id] ?? crop.amountSold ?? 0} aria-label="Amount of crops sold"/>
                                 </td>
 
                                 <td  className="border border-gray-300 px-4 py-2 text-center">
                                     <input type="checkbox" name="Completed" className="w-4 h-4"
                                     onChange={() => checkedCompleted(crop.id)}
-                                    checked={completed[crop.id] ?? crop.isCompleted ?? false}/>
+                                    checked={completed[crop.id] ?? crop.isCompleted ?? false}
+                                    aria-label="Mark crops completed if the amount is more or equal to 15"/>
                                 </td>
                             </tr>
                         ))
